@@ -35,6 +35,12 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::142565687175:role/github-actions-role
+          aws-region: eu-west-1
+          
       - name: AWS CloudFormation
         uses: aws-actions/aws-cloudformation-github-deploy@v1.2.0
         with:
